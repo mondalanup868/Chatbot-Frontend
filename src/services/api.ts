@@ -1,4 +1,4 @@
-import axios from 'axios';
+﻿import axios from 'axios';
 import type { Message, SessionData } from '../types/chat';
 
 // Normalize: remove trailing slash so `${baseURL}/api/chat` never becomes `//api/chat`.
@@ -7,7 +7,7 @@ const API_URL = RAW_URL.replace(/\/+$/, '');
 
 if (!import.meta.env.VITE_API_URL && import.meta.env.PROD) {
   console.warn(
-    '[CIPL] VITE_API_URL is not set in production build — falling back to localhost. ' +
+    '[Cognoscente Invnted Private Limited] VITE_API_URL is not set in production build — falling back to localhost. ' +
       'Set VITE_API_URL in Vercel Dashboard → Settings → Environment Variables to your Render backend URL (e.g. https://cipl-chatbot-backend.onrender.com).'
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { FaRobot, FaTimes, FaTrash, FaBolt, FaShieldAlt } from 'react-icons/fa';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
@@ -74,9 +74,9 @@ function ChatWidget() {
       const abuseMessage: Message = {
         id: Date.now().toString(),
         role: 'assistant',
-        content: 'I am here to assist you with CIPL services. Please let me know how I can help.',
+        content: 'I am here to assist you with Cognoscente Invnted Private Limited services. Please let me know how I can help.',
         timestamp: Date.now(),
-        suggestions: ['What services does CIPL provide?', 'Tell me about AI solutions', 'Book a demo']
+        suggestions: ['What services does Cognoscente Invnted Private Limited provide?', 'Tell me about AI solutions', 'Book a demo']
       };
       setMessages(prev => {
         const next = [...prev, abuseMessage];
@@ -174,7 +174,7 @@ function ChatWidget() {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <h2 className="font-display text-[15px] font-bold tracking-tight text-white">
-                      CIPL Assistant
+                      Cognoscente Invnted Private Limited Assistant
                     </h2>
                     <span className="rounded-md bg-blue-600 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-white border border-blue-400">
                       AI
@@ -209,10 +209,10 @@ function ChatWidget() {
             {messages.length === 0 && !limitReached && (
               <div className="animate-fade-up flex h-full flex-col items-center justify-center py-2 text-center">
                 <h3 className="mb-1 font-display text-[16px] font-bold tracking-tight text-white">
-                  Welcome to CIPL AI Assistant
+                  Welcome to Cognoscente Invnted Private Limited AI Assistant
                 </h3>
                 <p className="mx-auto mb-3.5 max-w-[290px] text-[12px] leading-snug text-slate-400">
-                  Your guide to CIPL services. Pick a topic:
+                  Your guide to Cognoscente Invnted Private Limited services. Pick a topic:
                 </p>
                 <div className="mx-auto mb-3 grid w-full max-w-[300px] grid-cols-2 gap-1.5">
                   {CAPABILITIES.map((item, i) => (
@@ -258,13 +258,13 @@ function ChatWidget() {
               <ChatInput onSend={handleSend} isLoading={isLoading} isDark={isDark} textareaRef={textareaRef} />
               <p className="mt-2.5 flex items-center justify-center gap-1.5 text-[10px] tracking-wide text-slate-500">
                 <FaShieldAlt className="text-[9px] text-blue-400" />
-                Secured &amp; confidential · Powered by CIPL
+                Secured &amp; confidential · Powered by Cognoscente Invnted Private Limited
               </p>
             </div>
           )}
         </div>
       ) : (
-        <button onClick={() => setIsOpen(true)} className="group relative flex items-center justify-center" title="Chat with CIPL AI">
+        <button onClick={() => setIsOpen(true)} className="group relative flex items-center justify-center" title="Chat with Cognoscente Invnted Private Limited AI">
           <span className="absolute h-16 w-16 animate-ring-pulse rounded-full bg-blue-600/40" />
           <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white transition-transform group-hover:scale-105 group-active:scale-95">
             <FaRobot className="text-2xl transition-transform group-hover:rotate-6" />
