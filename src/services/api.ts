@@ -1,4 +1,4 @@
-﻿import axios from 'axios';
+import axios from 'axios';
 import type { Message, SessionData } from '../types/chat';
 
 // Normalize: remove trailing slash so `${baseURL}/api/chat` never becomes `//api/chat`.
@@ -14,7 +14,7 @@ if (!import.meta.env.VITE_API_URL && import.meta.env.PROD) {
 
 const api = axios.create({
   baseURL: API_URL,
-  timeout: 20000
+  timeout: 60000
 });
 
 const ABUSE_WORDS = [

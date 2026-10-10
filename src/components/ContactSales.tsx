@@ -6,8 +6,8 @@ function ContactSales({ isDark }: { isDark: boolean }) {
     <div className="px-1 py-3 text-center animate-fade-up">
       <p className="mx-auto max-w-[30ch] text-balance text-[13.5px] leading-relaxed text-slate-200 sm:text-[14px]">
         For more enquiry, contact on{' '}
-        <a href="tel:+914545454545" className="whitespace-nowrap font-semibold text-blue-400">
-          +91 4545454545
+        <a href="tel:+911142467305" className="whitespace-nowrap font-semibold text-blue-400">
+          +91 1142467305
         </a>
       </p>
       <a
@@ -19,13 +19,6 @@ function ContactSales({ isDark }: { isDark: boolean }) {
         Contact Us Page
         <FaArrowRight className="text-[11px] opacity-80" />
       </a>
-      <p className="mt-2.5 text-[10.5px] text-slate-500">
-        or call us directly at{' '}
-        <a href="tel:+914545454545" className="inline-flex items-center gap-1 font-medium text-blue-400">
-          <FaPhone className="text-[9px]" />
-          +91 4545454545
-        </a>
-      </p>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-﻿import { useState, useEffect, useRef } from 'react';
-import { FaRobot, FaTimes, FaTrash, FaBolt, FaShieldAlt } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
+import { FaRobot, FaTimes, FaTrash, FaBolt } from 'react-icons/fa';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
 import TypingIndicator from './TypingIndicator';
@@ -65,6 +65,17 @@ function ChatWidget() {
       }
     };
     init();
+    // Re-check backend health in the background (e.g. Render cold start).
+    // No UI/design change — the existing Online/Offline badge just flips by itself.
+    const healthTimer = setInterval(async () => {
+      try {
+        const health = await getHealth();
+        setIsOnline(health.success);
+      } catch {
+        setIsOnline(false);
+      }
+    }, 15000);
+    return () => clearInterval(healthTimer);
   }, []);
 
   const handleSend = async (content: string) => {
@@ -136,7 +147,7 @@ function ChatWidget() {
         role: 'assistant',
         content:
           apiError.response?.data?.message ||
-          'Something went wrong on our side. Please try again, or contact our team at +91 9876543210 / support@example.com.',
+          'Something went wrong on our side. Please try again, or contact our team at +91 1142467305.',
         timestamp: Date.now()
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -174,11 +185,8 @@ function ChatWidget() {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <h2 className="font-display text-[15px] font-bold tracking-tight text-white">
-                      Cognoscente Invnted Private Limited Assistant
+                      I am your AI Assistant
                     </h2>
-                    <span className="rounded-md bg-blue-600 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-white border border-blue-400">
-                      AI
-                    </span>
                   </div>
                   <p className="mt-0.5 flex items-center gap-1.5 text-[11px] text-blue-100">
                     <span className={`h-1.5 w-1.5 rounded-full ${isOnline ? 'animate-pulse bg-emerald-300' : 'bg-rose-300'}`} />
@@ -211,10 +219,10 @@ function ChatWidget() {
                 <h3 className="mb-1 font-display text-[16px] font-bold tracking-tight text-white">
                   Welcome to Cognoscente Invnted Private Limited AI Assistant
                 </h3>
-                <p className="mx-auto mb-3.5 max-w-[290px] text-[12px] leading-snug text-slate-400">
+                {/* <p className="mx-auto mb-3.5 max-w-[290px] text-[12px] leading-snug text-slate-400">
                   Your guide to Cognoscente Invnted Private Limited services. Pick a topic:
-                </p>
-                <div className="mx-auto mb-3 grid w-full max-w-[300px] grid-cols-2 gap-1.5">
+                </p> */}
+                <div className="mx-auto mt-10 mb-3 grid w-full max-w-[300px] grid-cols-2 gap-1.5">
                   {CAPABILITIES.map((item, i) => (
                     <button
                       key={item}
@@ -256,10 +264,6 @@ function ChatWidget() {
           {!limitReached && (
             <div className="border-t border-slate-700 bg-slate-800 px-4 pb-4 pt-3.5">
               <ChatInput onSend={handleSend} isLoading={isLoading} isDark={isDark} textareaRef={textareaRef} />
-              <p className="mt-2.5 flex items-center justify-center gap-1.5 text-[10px] tracking-wide text-slate-500">
-                <FaShieldAlt className="text-[9px] text-blue-400" />
-                Secured &amp; confidential · Powered by Cognoscente Invnted Private Limited
-              </p>
             </div>
           )}
         </div>

@@ -33,7 +33,7 @@ function ChatInput({ onSend, isLoading, isDark, textareaRef }: { onSend: (conten
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ask me anything about Cognoscente Invnted Private Limited…"
+          placeholder="Ask me anything about Cognoscente Invnted Private Limited and its services..."
           rows={1}
           disabled={isLoading}
           className="w-full resize-none bg-transparent py-3 text-[13.5px] leading-snug text-slate-100 outline-none placeholder:text-slate-500 disabled:cursor-not-allowed disabled:opacity-50"
