@@ -72,3 +72,6 @@ coverage/
 .temp/
 .tmp/
 *.tgz
+
+# Vercel
+.vercel
